@@ -122,6 +122,7 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     Size size = MediaQuery.of(context).size;
 
     String delieverydays = "2-7 Days";
@@ -150,7 +151,7 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white, // Optional: Set AppBar color
+        backgroundColor: isDarkMode ? Colors.black : Colors.white,
         elevation: 0, // Optional: Remove AppBar shadow
         iconTheme: const IconThemeData(color: Colors.indigo), // Optional: Icon color
       ),
@@ -210,6 +211,7 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen> {
                         Text(
                           shippingName,
                           style: GoogleFonts.poppins(
+                            color: isDarkMode ? Colors.black : Colors.indigo,
                             fontWeight: FontWeight.w500,
                             fontSize: size.width * 0.045,
                           ),
@@ -232,6 +234,8 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen> {
                           child: Text(
                             shippingAddress,
                             style: GoogleFonts.poppins(
+                              color: isDarkMode ? Colors.black : Colors.indigo,
+
                               fontSize: size.width * 0.04,
                               height: 1.5, // Line height for better readability
                             ),
@@ -359,7 +363,7 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen> {
                 "Delivery Method",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
-                  color: Colors.indigo,
+                  color: isDarkMode ? Colors.white : Colors.indigo,
                   fontSize: size.width * 0.05,
                 ),
               ),
@@ -387,6 +391,7 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen> {
                           Text(
                             delieverydays,
                             style: GoogleFonts.poppins(
+                              color: isDarkMode ? Colors.black : Colors.indigo,
                               fontWeight: FontWeight.w600,
                               fontSize: size.width * 0.05,
                             ),
@@ -417,13 +422,14 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen> {
                             homeDeliveryMethod,
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
-                              color: Colors.indigo,
+                              color: isDarkMode ? Colors.black : Colors.indigo,
                               fontSize: size.width * 0.05,
                             ),
                           ),
                           Text(
                             delieverydays,
                             style: GoogleFonts.poppins(
+                              color: isDarkMode ? Colors.black : Colors.indigo,
                               fontWeight: FontWeight.w600,
                               fontSize: size.width * 0.05,
                             ),
