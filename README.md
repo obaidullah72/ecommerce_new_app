@@ -29,7 +29,7 @@ This **eCommerce app** allows users to browse products, manage their favorites, 
 
 - **Dark Mode**: Full dark mode support for a better user experience.  
   <img src="assets/darkhome.jpg" width="200">  
-  <img src="assets/darkfavorite.jpg" width="200">
+  <img src="assets/darkfavorite.png" width="200">
 
 ---
 
@@ -49,7 +49,11 @@ This **eCommerce app** allows users to browse products, manage their favorites, 
 
 | Dark Mode Home      | Dark Mode Order List| Dark Mode Review    |
 |---------------------|---------------------|---------------------|
-| <img src="assets/darkhome.jpg" width="150"> | <img src="assets/darkorderlist.jpg" width="150"> | <img src="assets/darkreview.jpg" width="150"> |
+| <img src="assets/darkhome.jpg" width="150"> | <img src="assets/darkorderlist.png" width="150"> | <img src="assets/darkreviewlist.png" width="150"> |
+
+| Dark Mode Favorites | Dark Mode Write Review |
+|---------------------|------------------------|
+| <img src="assets/darkfavorite.png" width="150"> | <img src="assets/darkwritereview.png" width="150"> |
 
 ---
 
