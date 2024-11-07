@@ -2,34 +2,34 @@
 
 This **eCommerce app** allows users to browse products, manage their favorites, place orders, make payments, and write reviews. Built with **Firebase** for backend services such as authentication, product storage, and order management, the app offers a seamless shopping experience with real-time updates.
 
-![Splash Screen](assets/splashscreen.gif)
+<img src="assets/splashscreen.gif" width="200">
 
 ---
 
 ## 📱 Features
 
-- **User Authentication**: Secure login and registration using Firebase Authentication.
-  ![Login Screen](assets/login.jpg)
-  ![Register Screen](assets/register.jpg)
+- **User Authentication**: Secure login and registration using Firebase Authentication.  
+  <img src="assets/login.jpg" width="200">  
+  <img src="assets/register.jpg" width="200">
 
-- **Product Management**: Browse, search, and filter products. Users can add products to their favorites and cart.
-  ![Home Screen](assets/homescreen.jpg)
-  ![Favorite Products](assets/favorite.jpg)
+- **Product Management**: Browse, search, and filter products. Users can add products to their favorites and cart.  
+  <img src="assets/homescreen.jpg" width="200">  
+  <img src="assets/favorite.jpg" width="200">
 
-- **Cart and Orders**: Users can add products to their cart, view order summaries, and place orders with integrated payment processing.
-  ![Cart Screen](assets/cartscreen2500p.jpg)
-  ![Order Confirmation](assets/confirmorder.jpg)
+- **Cart and Orders**: Users can add products to their cart, view order summaries, and place orders with integrated payment processing.  
+  <img src="assets/cartscreen2500p.jpg" width="200">  
+  <img src="assets/confirmorder.jpg" width="200">
 
-- **Payments**: Secure payments via Firebase, with real-time order status updates.
-  ![Payment Screen](assets/payment.jpg)
+- **Payments**: Secure payments via Firebase, with real-time order status updates.  
+  <img src="assets/payment.jpg" width="200">
 
-- **Reviews and Ratings**: Users can write reviews and rate products. They can also view reviews from other users.
-  ![Write Review](assets/writereview.jpg)
-  ![Review List](assets/reviewlist.jpg)
+- **Reviews and Ratings**: Users can write reviews and rate products. They can also view reviews from other users.  
+  <img src="assets/writereview.jpg" width="200">  
+  <img src="assets/reviewlist.jpg" width="200">
 
-- **Dark Mode**: Full dark mode support for a better user experience.
-  ![Dark Mode Home](assets/darkhome.jpg)
-  ![Dark Mode Favorites](assets/darkfavorite.jpg)
+- **Dark Mode**: Full dark mode support for a better user experience.  
+  <img src="assets/darkhome.jpg" width="200">  
+  <img src="assets/darkfavorite.jpg" width="200">
 
 ---
 
@@ -37,19 +37,19 @@ This **eCommerce app** allows users to browse products, manage their favorites, 
 
 | Splash Screen       | Welcome Screen      | Login Screen        |
 |---------------------|---------------------|---------------------|
-| ![Splash Screen](assets/splashscreen.jpg) | ![Welcome Screen](assets/welcome.jpg) | ![Login Screen](assets/login.jpg) |
+| <img src="assets/splashscreen.jpg" width="150"> | <img src="assets/welcome.jpg" width="150"> | <img src="assets/login.jpg" width="150"> |
 
 | Home Screen         | Cart Screen         | Confirm Order       |
 |---------------------|---------------------|---------------------|
-| ![Home Screen](assets/homescreen.jpg)     | ![Cart Screen](assets/cartscreen2500m.jpg) | ![Confirm Order](assets/confirmorder.jpg) |
+| <img src="assets/homescreen.jpg" width="150"> | <img src="assets/cartscreen2500m.jpg" width="150"> | <img src="assets/confirmorder.jpg" width="150"> |
 
 | Payment Screen      | Order List          | Profile Screen      |
 |---------------------|---------------------|---------------------|
-| ![Payment Screen](assets/payment.jpg)     | ![Order List](assets/orderlist.jpg) | ![Profile Screen](assets/profile.jpg) |
+| <img src="assets/payment.jpg" width="150"> | <img src="assets/orderlist.jpg" width="150"> | <img src="assets/profile.jpg" width="150"> |
 
 | Dark Mode Home      | Dark Mode Order List| Dark Mode Review    |
 |---------------------|---------------------|---------------------|
-| ![Dark Home](assets/darkhome.jpg)         | ![Dark Order List](assets/darkorderlist.jpg) | ![Dark Review](assets/darkreview.jpg) |
+| <img src="assets/darkhome.jpg" width="150"> | <img src="assets/darkorderlist.jpg" width="150"> | <img src="assets/darkreview.jpg" width="150"> |
 
 ---
 
