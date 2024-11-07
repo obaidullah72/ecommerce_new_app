@@ -18,15 +18,21 @@ class ReviewListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final theme = Theme.of(context);
+    final primaryColor = theme.primaryColor;
+    final cardColor = theme.cardColor;
+    final textColor = theme.textTheme.bodyLarge?.color ?? Colors.black;
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: theme.appBarTheme.backgroundColor,
         elevation: 0,
         title: Text(
           'My Reviews',
           style: GoogleFonts.poppins(
-            color: Colors.indigo,
+            color: isDarkMode ? Colors.indigoAccent : Colors.indigo,
             fontWeight: FontWeight.w600,
             fontSize: 24,
           ),
@@ -39,7 +45,7 @@ class ReviewListPage extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return const Center(child: Text('No reviews found.'));
+            return Center(child: Text('No reviews found.', style: TextStyle(color: textColor)));
           }
 
           final reviews = snapshot.data!.docs;
@@ -58,7 +64,7 @@ class ReviewListPage extends StatelessWidget {
                     ),
                   );
                 },
-                child: _buildReviewCard(review),
+                child: _buildReviewCard(review, cardColor, textColor),
               );
             },
           );
@@ -68,9 +74,10 @@ class ReviewListPage extends StatelessWidget {
   }
 
   // Widget to build individual review cards
-  Widget _buildReviewCard(Map<String, dynamic> review) {
+  Widget _buildReviewCard(Map<String, dynamic> review, Color cardColor, Color textColor) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      color: cardColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 3,
       child: Padding(
@@ -80,10 +87,10 @@ class ReviewListPage extends StatelessWidget {
           children: [
             Text(
               "Order #${review['orderNumber']}",
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.indigo,
+                color: textColor,
               ),
             ),
             const Gap(8),
@@ -92,7 +99,7 @@ class ReviewListPage extends StatelessWidget {
               children: [
                 Text(
                   'Total: Rs ${review['total']}',
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: textColor),
                 ),
                 _buildStarRating(review['rating']?.toDouble() ?? 0),
               ],
@@ -100,18 +107,18 @@ class ReviewListPage extends StatelessWidget {
             const Gap(8),
             Text(
               'Comment: ${review['comment'] ?? 'No comment provided'}',
-              style: const TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: 14, color: textColor),
             ),
             const Gap(8),
             const Text(
               'Products:',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            ..._buildProductList(review['products']),
+            ..._buildProductList(review['products'], textColor),
             const Gap(8),
             Text(
               'Reviewed on: ${_formatTimestamp(review['timestamp'])}',
-              style: const TextStyle(fontSize: 12, color: Colors.grey),
+              style: TextStyle(fontSize: 12, color: Colors.grey),
             ),
           ],
         ),
@@ -141,9 +148,9 @@ class ReviewListPage extends StatelessWidget {
   }
 
   // Generate a list of product details from the review data
-  List<Widget> _buildProductList(List<dynamic>? products) {
+  List<Widget> _buildProductList(List<dynamic>? products, Color textColor) {
     if (products == null || products.isEmpty) {
-      return [const Text('No products available.')];
+      return [Text('No products available.', style: TextStyle(color: textColor))];
     }
 
     return products.map((productData) {
@@ -155,8 +162,8 @@ class ReviewListPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(product['name'] ?? 'Unknown'),
-            Text('Qty: $quantity'),
+            Text(product['name'] ?? 'Unknown', style: TextStyle(color: textColor)),
+            Text('Qty: $quantity', style: TextStyle(color: textColor)),
           ],
         ),
       );
