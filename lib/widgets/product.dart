@@ -57,6 +57,13 @@ class _ProductWidgetState extends State<ProductWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final backgroundColor = isDarkMode ? Colors.grey[850] : Colors.white;
+    final textColor = isDarkMode ? Colors.white : Colors.black;
+    final availabilityColor = widget.availability
+        ? (isDarkMode ? Colors.greenAccent : const Color(0xFF03B680))
+        : Colors.redAccent;
+
     Size size = MediaQuery.of(context).size;
 
     return Padding(
@@ -108,7 +115,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                   ),
                   onPressed: () {
                     setState(() {
-                      isFavorited = !isFavorited; // Toggle favorite state
+                      isFavorited = !isFavorited;
                     });
                     Provider.of<ProductProvider>(context, listen: false)
                         .toggleFavorite(widget.product!);
@@ -122,13 +129,14 @@ class _ProductWidgetState extends State<ProductWidget> {
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w500,
                 fontSize: size.width * 0.033,
+                color: textColor,
               ),
             ),
             SizedBox(height: size.height * 0.005),
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: widget.availability ? const Color(0xFF03B680) : Colors.redAccent,
+                  backgroundColor: availabilityColor,
                   radius: 4,
                 ),
                 SizedBox(width: size.width * 0.020),
@@ -137,9 +145,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w500,
                     fontSize: size.width * 0.033,
-                    color: widget.availability
-                        ? const Color(0xFF03B680)
-                        : Colors.redAccent,
+                    color: availabilityColor,
                   ),
                 ),
               ],
@@ -151,14 +157,14 @@ class _ProductWidgetState extends State<ProductWidget> {
                 Text(
                   "Rs ${widget.price}",
                   style: GoogleFonts.poppins(
-                    color: Colors.grey,
+                    color: isDarkMode ? Colors.white70 : Colors.grey,
                     fontSize: size.width * 0.040,
                   ),
                 ),
                 if (widget.availability && widget.product != null)
                   GestureDetector(
                     onTap: () {
-                      _animateCartIcon(); // Call animation method
+                      _animateCartIcon();
                       context.read<CartProvider>().addToCart(widget.product!);
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
@@ -174,10 +180,11 @@ class _ProductWidgetState extends State<ProductWidget> {
                       scale: _cartIconScale,
                       duration: const Duration(milliseconds: 100),
                       child: CircleAvatar(
-                        backgroundColor: Colors.white,
+                        backgroundColor: backgroundColor,
                         radius: 13,
                         child: Icon(
                           CupertinoIcons.cart_fill_badge_plus,
+                          color: isDarkMode ? Colors.white : Colors.black,
                           size: size.width * 0.065,
                         ),
                       ),
@@ -186,9 +193,9 @@ class _ProductWidgetState extends State<ProductWidget> {
               ],
             ),
             if (!widget.availability)
-              const Text(
+              Text(
                 'Out of stock',
-                style: TextStyle(color: Colors.red),
+                style: TextStyle(color: availabilityColor),
               ),
           ],
         ),
